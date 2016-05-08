@@ -12,4 +12,4 @@ A branch is a replication of a code base (or any file(s)) in which one intends t
 A commit is when a change in a file is applied and saved to a file. Until changes have been committed to a file they have not been saved to whatever branch you are working on.  
 
 * **What is a merge conflict?**
-A merge conflict happens when changes have happened on the same lines of code in a branch. For example if the master branch has a function 'a' and two branches are created, branch 1 changes function 'a' to function 'b' and branch 2 changes function 'a' to function 'c' a merge conflict will happen when the branches are merged as they are both trying to change the same part of the master code.
+A merge conflict happens when changes have happened in separate branches on the same lines of code in the master. For example if the master branch has a function 'a' and two branches are created, branch 1 changes function 'a' to function 'b' and branch 2 changes function 'a' to function 'c' a merge conflict will happen when the branches are merged as they are both trying to change the same part of the master code.

@@ -7,6 +7,10 @@
   <body>
     <form name="Info about your pet" action="success.html" method="post">
       <div>
+        <label>Your Pet's Name:</label>
+        <input type="text" name="petName">
+      </div>
+      <div>
         <label>Type of Pet:</label>
         <select name="petType">
           <option value="animal">Cat</option>
@@ -15,7 +19,24 @@
           <option value="animal">Bird</option>
         </select>
       </div>
-
+      <fieldset>
+        <div>
+          <label>Your Pet's Gender:</label><br>
+          <input type="radio" name="petGender" value="male"> Male<br>
+          <input type="radio" name="petGender" value="female"> Female<br>
+          <input type="radio" name="petGender" value="other"> Other<br>
+        </div>
+        <div>
+          <label>Your Pet's Birthday:</label>
+          <input type="date" name="petBirthday">
+        </div>
+      </fieldset>
+      <div>
+        <label>Additional Information about Your Pet:</label>
+        <br/>
+        <textarea cols="40" rows="2"></textarea>
+      </div>
+      <button type="submit">Submit</button>
     </form>
   </body>
 </html>

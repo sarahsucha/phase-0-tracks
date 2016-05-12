@@ -1,0 +1,126 @@
+Last login: Tue May 10 09:54:07 on ttys000
+Sarahs-MacBook-Pro:~ suchasa$ cd Documents/
+Sarahs-MacBook-Pro:Documents suchasa$ cd ..
+Sarahs-MacBook-Pro:~ suchasa$ cd Code/
+Sarahs-MacBook-Pro:Code suchasa$ cd devbootcamp/
+Sarahs-MacBook-Pro:devbootcamp suchasa$ cd phase-0-tracks/
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git fetch origin master
+remote: Counting objects: 1, done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 1
+Unpacking objects: 100% (1/1), done.
+From https://github.com/sarahsucha/phase-0-tracks
+ * branch            master     -> FETCH_HEAD
+   19a83b1..e641980  master     -> origin/master
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git merge origin/master
+Updating 8aaccb4..e641980
+Fast-forward
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git branch
+* makeForm
+  master
+  update-definitions
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git checkout master
+Switched to branch 'master'
+Your branch is behind 'origin/master' by 3 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git branch -d makeForm
+error: The branch 'makeForm' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D makeForm'.
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git merge makeForm
+Updating 19a83b1..e641980
+Fast-forward
+ html/forms/practice-form.html | 42 ++++++++++++++++++++++++++++++++++++++++++
+ html/forms/success.html       | 10 ++++++++++
+ 2 files changed, 52 insertions(+)
+ create mode 100644 html/forms/practice-form.html
+ create mode 100644 html/forms/success.html
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git branch -d makeForm
+Deleted branch makeForm (was e641980).
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git branch
+* master
+  update-definitions
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git branch -d update-definitions
+Deleted branch update-definitions (was 47742cc).
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git branch
+* master
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ git checkout -b table
+Switched to a new branch 'table'
+Sarahs-MacBook-Pro:phase-0-tracks suchasa$ cd html/
+Sarahs-MacBook-Pro:html suchasa$ touch table-practice.html
+Sarahs-MacBook-Pro:html suchasa$ ls
+forms			planning		web_basics
+moon_bootz		table-practice.html
+Sarahs-MacBook-Pro:html suchasa$ open -a "Atom" table-practice.html 
+Sarahs-MacBook-Pro:html suchasa$ open table-practice.html 
+Sarahs-MacBook-Pro:html suchasa$ git branch
+  master
+* table
+Sarahs-MacBook-Pro:html suchasa$ git status
+On branch table
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	table-practice.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+Sarahs-MacBook-Pro:html suchasa$ git add table-practice.html 
+Sarahs-MacBook-Pro:html suchasa$ git status
+On branch table
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   table-practice.html
+
+Sarahs-MacBook-Pro:html suchasa$ git commit -m "create table-practice.html with content"
+[table 9f490ee] create table-practice.html with content
+ 1 file changed, 76 insertions(+)
+ create mode 100644 html/table-practice.html
+Sarahs-MacBook-Pro:html suchasa$ git status
+On branch table
+nothing to commit, working directory clean
+Sarahs-MacBook-Pro:html suchasa$ git push origin table
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.17 KiB | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+To https://github.com/sarahsucha/phase-0-tracks.git
+ * [new branch]      table -> table
+Sarahs-MacBook-Pro:html suchasa$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Sarahs-MacBook-Pro:html suchasa$ checkout table
+-bash: checkout: command not found
+Sarahs-MacBook-Pro:html suchasa$ git checkout table
+Switched to branch 'table'
+Sarahs-MacBook-Pro:html suchasa$ git push origin table
+Everything up-to-date
+Sarahs-MacBook-Pro:html suchasa$ git pull origin master
+remote: Counting objects: 1, done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), done.
+From https://github.com/sarahsucha/phase-0-tracks
+ * branch            master     -> FETCH_HEAD
+   e641980..8249263  master     -> origin/master
+Updating 9f490ee..8249263
+Fast-forward
+Sarahs-MacBook-Pro:html suchasa$ git checkout master
+Switched to branch 'master'
+Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+Sarahs-MacBook-Pro:html suchasa$ git branch
+* master
+  table
+Sarahs-MacBook-Pro:html suchasa$ git branch -d table
+error: The branch 'table' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D table'.
+Sarahs-MacBook-Pro:html suchasa$ git merge table
+Updating e641980..8249263
+Fast-forward
+ html/table-practice.html | 76 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
+ create mode 100644 html/table-practice.html
+Sarahs-MacBook-Pro:html suchasa$ git branch -d table
+Deleted branch table (was 8249263).
+Sarahs-MacBook-Pro:html suchasa$ git branch
+* master
+Sarahs-MacBook-Pro:html suchasa$ 

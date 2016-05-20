@@ -30,7 +30,7 @@ strong {
 
 #octopus {
   position: relative;
-  top: 80px;
+  margin-top: 80px;
   left: 120px;
   display: inline-block;
 }

@@ -51,3 +51,24 @@ figcaption {
 body {
   max-width: 100%;
 }
+
+@media screen and (max-width: 650px) {
+  main, #external-links {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  body {
+    background-color: hotpink;
+  }
+  h1 {
+    font-size: 1em;
+  }
+}
+
+#wrap {
+  max-width: 500px;
+  margin: 0 auto;
+}

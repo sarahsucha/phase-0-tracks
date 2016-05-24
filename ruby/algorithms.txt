@@ -1,0 +1,15 @@
+- move inside the elevator
+- get an input from your human for what number will be the floor you want to visit. Each number is on a button in the elevator. 
+- first you will need to find the outermost button
+	> first go up to the top row of buttons
+	> go to the first column of buttons
+- once you have found the outermost button, you will need to scan for the number of the floor that you were told to visit.
+	> scan the first row of buttons for the number from right to left
+	> if you find the number, skip to the next section
+	> if you do not find the number, move down to the next row of numbers and scan the second row of buttons for the number from right to left 
+	> continue to move down one row of numbers and to scan each row for the number until you find the number, then move to the next section.
+- once you find the number of the floor that you were told to visit, push the button. 
+- the doors will now close
+- once the doors are closed and the number of the floor’s button has been pushed, do not push any further buttons.
+- the elevator will move up to the number of the floor which button was pushed.
+- move outside of the elevator.

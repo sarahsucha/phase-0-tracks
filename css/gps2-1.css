@@ -1,3 +1,43 @@
-* {
-  font-family: sans-serif;
+body {
+  max-width: 100%;
+  font-family: Helvetica;
+  background-image: url("http://st.depositphotos.com/1011127/1234/v/950/depositphotos_12342986-Retro-waves-texture-seamless-pattern.jpg");
+}
+
+#main {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: pink;
+  text-align: center;
+}
+header p {
+  text-align: center;
+  padding-right: 80px;
+  padding-left: 80px;
+}
+
+.column-1 {
+  background-color: lightblue;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 40%;
+  margin-right: 10px;
+  padding: 0 20px;
+}
+
+.column-2 {
+  background-color: lightgreen;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 40%;
+  margin-left: 10px;
+  padding: 0 20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 25px;
 }

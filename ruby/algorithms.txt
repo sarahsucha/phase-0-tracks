@@ -1,3 +1,5 @@
+ELEVATOR
+
 - move inside the elevator
 - get an input from your human for what number will be the floor you want to visit. Each number is on a button in the elevator. 
 - first you will need to find the outermost button
@@ -13,3 +15,20 @@
 - once the doors are closed and the number of the floor’s button has been pushed, do not push any further buttons.
 - the elevator will move up to the number of the floor which button was pushed.
 - move outside of the elevator.
+
+MAKE TOAST
+
+- find the bag of sliced bread
+- open the bag of sliced bread
+- pull out two slices of bread from the bag
+- find the toaster
+- place one slice of bread in the left opening of the toaster
+- place the other slice of bread in the right opening of the toaster
+- find the toaster lever
+	> look on any side of the toaster
+	> if the lever is not there, look another side of the toaster, turning the toaster clockwise
+	> continue to turn the toaster and look for the lever until you find the lever
+- once you find the toaster lever, push it down
+- wait until the lever comes back up
+- pull out the slice of bread from the right side of the toaster
+- pull our the slice of bread from the left side of the toaster

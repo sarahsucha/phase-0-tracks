@@ -49,6 +49,8 @@ end
 
 # puts decrypt(encrypt("swordfish"))
 
+# DRIVER CODE 
+
 puts "Type 1 if you want to encrypt and 2 if you want to decrypt"
 choice = gets.chomp.to_i
 
@@ -59,4 +61,4 @@ if choice == 1
   puts encrypt(password)
 else
   puts decrypt(password)
-end 
+end

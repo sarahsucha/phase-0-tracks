@@ -22,6 +22,7 @@ def encrypt (str)
 	return encrypted_string
 end
 
+
 # decrypt method: takes in an encrypted string
 #  -iterate over each character in the string
 #  	- change each letter to the letter before in the alphabet
@@ -46,4 +47,16 @@ def decrypt (str)
 	return decrypted_string
 end
 
-puts decrypt("abc dbua")
+# puts decrypt(encrypt("swordfish"))
+
+puts "Type 1 if you want to encrypt and 2 if you want to decrypt"
+choice = gets.chomp.to_i
+
+puts "Your password"
+password = gets.chomp
+
+if choice == 1
+  puts encrypt(password)
+else
+  puts decrypt(password)
+end 

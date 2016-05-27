@@ -6,13 +6,6 @@ while i < numEmployees
 
   puts "What is your name?"
   name = gets.chomp
-  if name == "Drake Cula"
-    name = false
-  elsif name == "Tu Fang"
-    name = false
-  else
-    name = true
-  end
 
   puts "In what year were you born? (yyyy)"
   birthYear = gets.chomp
@@ -41,22 +34,29 @@ while i < numEmployees
     insurance = false
   end
 
-  puts "List an alergy: (type "done" when finished)"
-  alergy = gets.chomp
-  if alergy == "sunshine"
-
-  case
-  when !name
-    puts "Definitely a vampire."
-  when birthYear && (garlicTolerant || insurance)
-    puts "Probably not a vampire."
-  when !birthYear && (garlicTolerant || insurance)
-    puts "Probaby a vampire."
-  when !birthYear && !garlicTolerant && !insurance
-    puts "Almost certainly a vampire."
-  else
-    puts "Results inconslusive."
+  alergy = ""
+  until alergy == "done"
+    puts "List an alergy: (type 'done' when finished)"
+    alergy = gets.chomp
+    if alergy == "sunshine"
+      break
+    end
   end
 
-i += 1
+    case
+    when name == "Drake Cula" || name == "Tu Fang" || alergy == "sunshine"
+      puts "Definitely a vampire."
+    when birthYear && (garlicTolerant || insurance)
+      puts "Probably not a vampire."
+    when !birthYear && (garlicTolerant || insurance)
+      puts "Probaby a vampire."
+    when !birthYear && !garlicTolerant && !insurance
+      puts "Almost certainly a vampire."
+    else
+      puts "Results inconslusive."
+    end #end case
+
+  i += 1
 end
+
+puts "Actually, never mind! What doe these questions have to do with anything? Let's all be friends."

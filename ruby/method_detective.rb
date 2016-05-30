@@ -4,8 +4,8 @@
 # When there's more than one suspect who could have
 # committed the crime, add additional calls to prove it.
 
-# "iNvEsTiGaTiOn".<???>
-# => “InVeStIgAtIoN”
+"iNvEsTiGaTiOn".swapcase
+=> “InVeStIgAtIoN”
 
 # "zom".<???>
 # => “zoom”
@@ -32,7 +32,7 @@
 # => "Elementary, my dear Watson!"
 
 # "z".<???>
-# => 122 
+# => 122
 # (What is the significance of the number 122 in relation to the character z?)
 
 # "How many times does the letter 'a' appear in this string?".<???>

@@ -7,22 +7,27 @@ while i < numEmployees
   puts "What is your name?"
   name = gets.chomp
 
+  puts "What is your age?"
+  age = gets.chomp
+  age = age.to_i
+
   puts "In what year were you born? (yyyy)"
   birthYear = gets.chomp
   birthYear = birthYear.to_i
-  if birthYear < 1930
-    birthYear = false
-  elsif birthYear > 2016
-    birthYear = false
-  else
+  currentYear = 2016
+  if age = currentYear - birthYear
     birthYear = true
+  elsif age = currentYear - (birthYear -1)
+    birthYear = true
+  else
+    birthYear = false
   end
 
   puts "Our cafeteria serves garlic bread... may we order some for you? (y/n)"
   garlicTolerant = gets.chomp
   if garlicTolerant == "y"
     garlicTolerant = true
-  else garlicTolerant == "n"
+  else
     garlicTolerant = false
   end
 
@@ -30,7 +35,7 @@ while i < numEmployees
   insurance = gets.chomp
   if insurance == "y"
     insurance = true
-  else  insurance == "n"
+  else
     insurance = false
   end
 
@@ -44,14 +49,14 @@ while i < numEmployees
   end
 
     case
-    when name == "Drake Cula" || name == "Tu Fang" || alergy == "sunshine"
+    when name == "Drake Cula" || name == "Tu Fang"
       puts "Definitely a vampire."
-    when birthYear && (garlicTolerant || insurance)
-      puts "Probably not a vampire."
-    when !birthYear && (garlicTolerant || insurance)
-      puts "Probaby a vampire."
     when !birthYear && !garlicTolerant && !insurance
       puts "Almost certainly a vampire."
+    when (!birthYear && (garlicTolerant || insurance)) || alergy == "sunshine"
+      puts "Probaby a vampire."
+    when birthYear && (garlicTolerant || insurance)
+      puts "Probably not a vampire."
     else
       puts "Results inconslusive."
     end #end case

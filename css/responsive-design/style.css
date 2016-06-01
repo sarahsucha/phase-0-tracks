@@ -1,6 +1,6 @@
-* {
+/** {
   border: solid 1px red;
-}
+}*/
 
 blockquote {
   border-left: 5px solid blue;
@@ -19,7 +19,7 @@ cite {
 }
 
 #external-links {
-  max-width: 20%;
+  max-width: 30%;
   display: inline-block;
   vertical-align: top;
   overflow: hidden;
@@ -50,6 +50,29 @@ figcaption {
 
 body {
   max-width: 100%;
+  /*background-color: gray;*/
+}
+
+@media screen and (max-width: 650px) {
+  main, #external-links {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  /*body {
+    background-color: hotpink;
+  }*/
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+#wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  /*background-color: white;*/
 }
 
 @media screen and (max-width: 650px) {

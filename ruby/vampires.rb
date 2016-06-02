@@ -32,11 +32,11 @@ while i < numEmployees
   end
 
   puts "Would you like to enroll in the company's health insurance? (y/n)"
-  insurance = gets.chomp
-  if insurance == "y"
-    insurance = true
+  wantsInsurance = gets.chomp
+  if wantsInsurance == "y"
+    wantsInsurance = true
   else
-    insurance = false
+    wantsInsurance = false
   end
 
   alergy = ""
@@ -51,11 +51,11 @@ while i < numEmployees
     case
     when name == "Drake Cula" || name == "Tu Fang"
       puts "Definitely a vampire."
-    when !isCorrectAge && !isGarlicTolerant && !insurance
+    when !isCorrectAge && !isGarlicTolerant && !wantsInsurance
       puts "Almost certainly a vampire."
-    when (!isCorrectAge && (!isGarlicTolerant || !insurance)) || alergy == "sunshine"
+    when (!isCorrectAge && (!isGarlicTolerant || !wantsInsurance)) || alergy == "sunshine"
       puts "Probaby a vampire."
-    when isCorrectAge && (isGarlicTolerant || insurance)
+    when isCorrectAge && (isGarlicTolerant || wantsInsurance)
       puts "Probably not a vampire."
     else
       puts "Results inconslusive."

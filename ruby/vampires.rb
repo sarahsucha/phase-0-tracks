@@ -8,20 +8,20 @@ while i < numEmployees
   name = gets.chomp
 
   puts "What is your age?"
-  age = gets.chomp
-  age = age.to_i
+  age = gets.chomp.to_i
 
   puts "In what year were you born? (yyyy)"
-  birthYear = gets.chomp
-  birthYear = birthYear.to_i
+  birthYear = gets.chomp.to_i
+  
   currentYear = 2016
-  if age = (currentYear - birthYear)
-    isCorrectAge = true
-  elsif age = currentYear - (birthYear -1)
-    isCorrectAge = true
-  else
-    isCorrectAge = false
+  if age == (currentYear - birthYear)
+  	isCorrectAge = true
+  elsif age == (currentYear - (birthYear + 1))
+  	isCorrectAge = true
+  else 
+  	isCorrectAge = false
   end
+  puts isCorrectAge
 
   puts "Our cafeteria serves garlic bread... may we order some for you? (y/n)"
   garlicTolerant = gets.chomp

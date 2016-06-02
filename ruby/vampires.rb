@@ -15,20 +15,20 @@ while i < numEmployees
   birthYear = gets.chomp
   birthYear = birthYear.to_i
   currentYear = 2016
-  if age = currentYear - birthYear
-    birthYear = true
+  if age = (currentYear - birthYear)
+    isCorrectAge = true
   elsif age = currentYear - (birthYear -1)
-    birthYear = true
+    isCorrectAge = true
   else
-    birthYear = false
+    isCorrectAge = false
   end
 
   puts "Our cafeteria serves garlic bread... may we order some for you? (y/n)"
   garlicTolerant = gets.chomp
   if garlicTolerant == "y"
-    garlicTolerant = true
+    isGarlicTolerant = true
   else
-    garlicTolerant = false
+    isGarlicTolerant = false
   end
 
   puts "Would you like to enroll in the company's health insurance? (y/n)"
@@ -51,11 +51,11 @@ while i < numEmployees
     case
     when name == "Drake Cula" || name == "Tu Fang"
       puts "Definitely a vampire."
-    when !birthYear && !garlicTolerant && !insurance
+    when !isCorrectAge && !isGarlicTolerant && !insurance
       puts "Almost certainly a vampire."
-    when (!birthYear && (garlicTolerant || insurance)) || alergy == "sunshine"
+    when (!isCorrectAge && (!isGarlicTolerant || !insurance)) || alergy == "sunshine"
       puts "Probaby a vampire."
-    when birthYear && (garlicTolerant || insurance)
+    when isCorrectAge && (isGarlicTolerant || insurance)
       puts "Probably not a vampire."
     else
       puts "Results inconslusive."

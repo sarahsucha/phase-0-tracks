@@ -57,3 +57,19 @@ designer[:likesDada] = makeBoolean(gets.chomp)
 
 # Print out inputed data once form is complete
 p designer
+
+# Ask user if would like to update information
+editChoice = ""
+until editChoice == "done"
+  puts "If you are happy with the information entered, write 'done' - otherwise, write in the following to edit: name, phone, yearsExperience, likesMoroccan, likesHungarian, likesOtomi, likesDada"
+  editChoice = gets.chomp
+  if editChoice == "done"
+    puts "Thank you for applying!"
+    p designer
+  else
+    editChoice = editChoice.to_sym
+    puts "Enter new value:"
+    designer[editChoice] = gets.chomp
+    p designer
+  end
+end

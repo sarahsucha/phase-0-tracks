@@ -12,9 +12,6 @@
 
 #Setup a user hash
 designer = {}
-p designer
-
-# name:, email:, phone:, yearsExperience:, likesMoroccan:, likesHungarian:, likesOtomi:, likesModern:,
 
 # Prompt User For information
 puts "Your Full Name:"
@@ -59,6 +56,7 @@ designer[:likesDada] = makeBoolean(gets.chomp)
 p designer
 
 # Ask user if would like to update information
+# Create loop until user writes "done"
 editChoice = ""
 until editChoice == "done"
   puts "If you are happy with the information entered, write 'done' - otherwise, write in the following to edit: name, phone, yearsExperience, likesMoroccan, likesHungarian, likesOtomi, likesDada"
@@ -66,6 +64,20 @@ until editChoice == "done"
   if editChoice == "done"
     puts "Thank you for applying!"
     p designer
+  # if user choice is number, get new value and convert to integer"
+  elsif editChoice == "yearsExperience"
+    editChoice = editChoice.to_sym
+    puts "Enter new value:"
+    designer[editChoice] = gets.chomp.to_i
+    p designer
+  # if user choice is boolean, get new value and convert to boolean"
+  # TODO find a way to identify all questions that are boolean and not have to hard code each one out in this elsif statement.
+  elsif editChoice == "likesMoroccan" || editChoice == "likesHungarian" || editChoice == "likesOtomi" || editChoice == "likesDada"
+    editChoice = editChoice.to_sym
+    puts "Enter new value (y/n):"
+    designer[editChoice] = makeBoolean(gets.chomp)
+    p designer
+  # All other data that should just be string values
   else
     editChoice = editChoice.to_sym
     puts "Enter new value:"

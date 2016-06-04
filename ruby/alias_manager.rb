@@ -30,8 +30,16 @@ def makeAlias(name)
   return alaisName = aliasName.split.map(&:capitalize).join(' ')
 end
 
-# combine methods to be called
-
-# call method
- p makeAlias("Felicia Torres")
- p makeAlias("Sarah Sucha")
+# User Interface
+# User can put in as many names as wish to make aliases for
+addNames = ''
+until addNames == 'done'
+  puts "Write a name to create an alias:"
+  aliasRequest = gets.chomp
+  aliasList = []
+  if aliasRequest == 'done'
+    puts "done"
+    addNames = 'done'
+  end
+#    puts "The alias name for #{aliasRequest} is #{makeAlias(aliasRequest)}"
+end

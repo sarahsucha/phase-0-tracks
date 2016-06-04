@@ -11,23 +11,27 @@ def makeAlias(name)
   #define consontants and vowels strings
   consonants= 'bcdfghjklmnpqrstvwxyz'.split('')
   p consonants
-  vowelString = 'aeiou'
+  vowels = 'aeiou'.split('')
+  p vowels
   aliasName = ""
   # define where to start in the make alias process (at index 0)
   counter = 0
   while counter < nameLength
+    case
+    # if a space, remains a space
+    when swapName[counter] == ' '
+      newLetter = ' '
     #if letter is found in consonants, push to next letter in consonants string
-    if consonants.include?(swapName[counter]) == true
+    when consonants.include?(swapName[counter]) == true
       newLetter = consonants[(consonants.index(swapName[counter]) +1) % 21]
-    else
-      p "hi!"
+    #if letter is found in vowels, push to next letter in vowels string
+    when vowels.include?(swapName[counter]) == true
+      newLetter = vowels[(vowels.index(swapName[counter])+1) % 5]
     end
     aliasName += newLetter
     counter += 1
-    #if letter is found in vowels, push to next letter in vowels string
-    # if a special character, such as a space, go to next special character
-   end
-   return aliasName
+  end
+  return aliasName
 end
 
 # combine methods to be called

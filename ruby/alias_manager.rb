@@ -31,19 +31,22 @@ def makeAlias(name)
 end
 
 # User Interface
-# User can put in as many names as wish to make aliases for
+# user can put in as many names as wish to make aliases for
 addNames = ''
+# set up a hash in which to save requested names and thier aliases
+aliasList = {}
 until addNames == 'quit'
   puts "Write a name to create an alias: (when finished, enter 'quit')"
   aliasRequest = gets.chomp
-  # save names entered into a hash with requested name as key and alias name as value
-  aliasList = {}
   if aliasRequest == 'quit'
     # print out entered names with respective alias names
     addNames = 'quit'
   else
+    # save names entered into a hash with requested name as key and alias name as value
     aliasList[aliasRequest] = makeAlias(aliasRequest)
-    puts aliasList
   end
-#    puts "The alias name for #{aliasRequest} is #{makeAlias(aliasRequest)}"
 end
+# print out all requested names and their aliases
+aliasList.each do |originalName, aliasName|
+  puts "The alias for #{originalName} is #{aliasName}."
+end 

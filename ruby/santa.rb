@@ -367,7 +367,7 @@ phrases = [
 end
 p "Santa number 32's favorite Santa name is #{santas[32].fav_name}"
 p "Santa number 59's favorite cookie is #{santas[59].fav_cookie}"
-p "Santa number 3's favorite holiday phrase is #{santas[3].phrase}"
+p "Santa number 3's favorite holiday phrase is '#{santas[3].phrase}'"
 p santas[28]
 santas[28].fav_location = "Mongolia"
 santas[28].get_mad_at("Vixen")

@@ -38,15 +38,15 @@ class Santa
     @reindeer_ranking = @reindeer_ranking.push(reindeer_name)
   end
 
-  # def name
-  # @fav_name
+  # def fav_name=(new_name)
+  # @fav_name = new_name
   # end
   #
   # def location
   #   @fav_location
   # end
   #
-  # def cookie
+  # def fav_cookie
   #   @fav_cookie
   # end
   #
@@ -355,7 +355,7 @@ phrases = [
 # p santas[1].add_experience
 # p santas[1].get_mad_at("Dasher")
 # p santas[1].fav_location = "Persia"
-# p santas[1].fav_name
+# p santas[1].fav_name = "Sexy Santa"
 # p santas[1].fav_cookie
 # p santas[1].phrase
 # p santas[1]

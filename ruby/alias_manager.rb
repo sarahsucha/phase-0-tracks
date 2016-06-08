@@ -1,3 +1,5 @@
+# https://repl.it/CZrB/1
+
 #write a method that takes the first and last name and creates alias
 def makeAlias(name)
   # lowercase name so that it will be easy to work with
@@ -12,7 +14,7 @@ def makeAlias(name)
   aliasName = ""
   # define where to start in the make alias process (at index 0)
   counter = 0
-  while counter < nameLength
+  while counter < swapName.length
     case
     # if a space, remains a space
     when swapName[counter] == ' '
@@ -49,4 +51,4 @@ end
 # print out all requested names and their aliases
 aliasList.each do |originalName, aliasName|
   puts "The alias for #{originalName} is #{aliasName}."
-end 
+end

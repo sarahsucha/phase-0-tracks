@@ -4,7 +4,7 @@ class Santa
 
   attr_accessor :fav_location
 
-  def initialize(name, place, cookie, phrase)
+  def initialize(name, place, years, cookie, phrase)
     p "Initializing Santa instance..."
     # define Santa attibutes - I am not going to use gender, ethnicity and age because none of this data is meaningful to me, I love each Santa equally, regardless of their gender, ethincity or age. I feel that by asking each Santa for this data I may instill a feeling of stereotype threat and I want to avoid that. Instead, I am going to ask questions that I feel are more relevant to their Santa identity:
     # favorite Santa nickname
@@ -14,7 +14,7 @@ class Santa
     @fav_name = name
     @fav_location = place
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @years_experience = 0
+    @years_experience = years
     @fav_cookie = cookie
     @phrase = phrase
   end
@@ -37,6 +37,28 @@ class Santa
     @reindeer_ranking.delete(reindeer_name)
     @reindeer_ranking = @reindeer_ranking.push(reindeer_name)
   end
+
+  # def name
+  # @fav_name
+  # end
+  #
+  # def location
+  #   @fav_location
+  # end
+  #
+  # def cookie
+  #   @fav_cookie
+  # end
+  #
+  # def phrase
+  #   @phrase
+  # end
+
+  # add methods to make data editable outside of the class ("setter method")
+
+  # def fav_location(new_place)
+  # @fav_location = new_place
+  # end
 
 end
 
@@ -287,7 +309,7 @@ cookies = [
     "Thumbprint Cookie",
     "Shortbread Cookie",
     "Sugar Cookie",
-    "Caramel Shortbrea",
+    "Caramel Shortbread",
     "Butter Pecan Cookie",
     "Almond Biscuit",
     "Ameretti di Saronno",
@@ -322,27 +344,32 @@ phrases = [
 
 # driver code to test iteration
 
-santa_names.length.times do |i|
-  santas << Santa.new(santa_names[i], delivery_places[i*10], cookies[i], phrases[i])
-end
+# santa_names.length.times do |i|
+#   santas << Santa.new(santa_names[i], delivery_places[i*10], cookies[i], phrases[i])
+# end
 
 # driver code to test getter and setter methods
 
-p santas.length
-p santas[1]
-p santas[1].add_experience
-p santas[1].get_mad_at("Dasher")
-p santas[1].fav_location = "Persia"
-p santas[1].fav_name
-p santas[1].fav_cookie
-p santas[1].phrase
-p santas[1]
-nil
+# p santas.length
+# p santas[1]
+# p santas[1].add_experience
+# p santas[1].get_mad_at("Dasher")
+# p santas[1].fav_location = "Persia"
+# p santas[1].fav_name
+# p santas[1].fav_cookie
+# p santas[1].phrase
+# p santas[1]
+# nil
 
-# santas.each do |santa|
-#   cookie_index = 0
-#   while cookie_index < santas.length
-#     santa.eat_milk_and_cookies(cookies[cookie_index])
-#     cookie_index += 1
-#   end
-# end
+# create lots of santas and write driver code to test
+100.times do |i|
+  santas << Santa.new(santa_names.sample, delivery_places.sample, rand(0...140), cookies.sample, phrases.sample)
+end
+p "Santa number 32's favorite Santa name is #{santas[32].fav_name}"
+p "Santa number 59's favorite cookie is #{santas[59].fav_cookie}"
+p "Santa number 3's favorite holiday phrase is #{santas[3].phrase}"
+p santas[28]
+santas[28].fav_location = "Mongolia"
+santas[28].get_mad_at("Vixen")
+p santas[28]
+nil

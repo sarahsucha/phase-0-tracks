@@ -16,3 +16,6 @@ class Calculator
   end
 
 end
+
+test = Calculator.new
+test.add(4,5)

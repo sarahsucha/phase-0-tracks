@@ -28,4 +28,9 @@ describe Calculator do
   it "divides two integers" do
     expect(calculator.divide(12,4)).to eq 3
   end
+
+  it "adding two integers results in an integer" do
+    expect(calculator.add(3,4)).to be_kind_of(Fixnum)
+  end
+
 end

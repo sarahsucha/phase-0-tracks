@@ -31,9 +31,11 @@ a = "the usual".concat(" suspects")
 "Elementary,    my   dear        Watson!".squeeze
 => "Elementary, my dear Watson!"
 
-"z".replace("122").to_i
+"z".codepoints[0]
 => 122
-# (What is the significance of the number 122 in relation to the character z?) In this case, there is no significance... I have just replaced "z" with the integer 122. It could be used in a subsequent encryption method perhaps.
+# (What is the significance of the number 122 in relation to the character z?) 
+# 122 is the ASCII number associated with lower case "z"
+# http://www.theasciicode.com.ar/ascii-printable-characters/lowercase-letter-z-minuscule-ascii-code-122.html 
 
 "How many times does the letter 'a' appear in this string?".count("a")
 => 4

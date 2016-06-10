@@ -115,15 +115,19 @@ def request_add_book()
   if input_if_add_book == "y"
       add_book()
   else
-    puts "Do you want to see the books you've added? (y/n)"
-    want_see_books = gets.chomp
-    if want_see_books == "y"
-      $rabbit_guides.each_index do |book_index|
-        $rabbit_guides[book_index].pretty_print
-      end
-    else
-      puts "Thank You for Publishing with Rabbit Guides!"
+    see_books()
+  end
+end
+
+def see_books()
+  puts "Do you want to see the books you've added? (y/n)"
+  want_see_books = gets.chomp
+  if want_see_books == "y"
+    $rabbit_guides.each_index do |book_index|
+      $rabbit_guides[book_index].pretty_print
     end
+  else
+    puts "Thank You for Publishing with Rabbit Guides!"
   end
 end
 

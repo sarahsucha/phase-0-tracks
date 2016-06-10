@@ -9,7 +9,7 @@
 #create a customer list
 #create a tally for total profits (in CZK)
 #be able to see book data including copyright
-  #print out title, year, isbn and copyright notice
+  #print out title, year, isbn, base cost and copyright notice
 #make it possible for someone to buy the book
   #get the name of the customer
   #get how many they want to buy
@@ -22,7 +22,6 @@
 #calculate profits for each author
   #total profits (minus any printing costs) / 2
 #TODO make more complex data structure for customers so it will be possible to add data to customers
-
 #TODO create list of ISBN numbers
 #TODO create list of sale channels and price per channel
 
@@ -50,6 +49,7 @@ class RabbitGuide
     puts "Book Title: #{@title}"
     puts "Published: #{@publishing_date}"
     puts "ISBN: #{@isbn}"
+    puts "Base Cost per Book: #{@printing_cost_in_czk} CZK"
     puts "copyright Sara Mihalik and Sarah Sucha"
     puts "-----------------------------"
   end
@@ -103,44 +103,65 @@ end
 
 #USER INTERFACE PSEUDOCODE
 #ask user if would like to add a book to Rabbit Guides
-  #IF they say yes, allow them to add a book (and add as many books as they want)
-  #ELSE ask them if they would like to add a sale
+  #allow them to add a book
+    #get place
+    #get publishing date
+    #get ISBN
+    #get base cost per book
+    #create new book and add to list of books
+    #ask if wish to add another book
+    #IF not
+      #ask if wish to see a list of books entered
+#ask user if they would like to add a sale
+  #allow them to add a sale
+    #get name of book sold
+      #IF name entered does not exist, inform user that book has not been created yet and offer them to add it
+    #get customer name
+    #get number of books sold
+    #get price per book
+    #create new sale and add to list of sales / customers
+    #ask if wish to add another sale
+    #IF not
+      #ask if wish to see a list of sales per book
 
 #USER INTERFACE
 $rabbit_guides = []
-$rabbit_guides << RabbitGuide.new({place: "Venice", publishing_date: 2013, isbn: 12344566, printing_cost: 125})
-$rabbit_guides << RabbitGuide.new({place: "Prague", publishing_date: 2013, isbn: 12344566, printing_cost: 125})
 
 def request_add_book()
   puts "Would you like to add a new Rabbit Guides book? (y/n)"
   input_if_add_book = gets.chomp
   if input_if_add_book == "y"
-      add_book()
+    add_book()
   else
     see_books()
   end
 end
 
-
+def see_books()
+  puts "Do you want to see the books you've added? (y/n)"
+  want_see_books = gets.chomp
+  if want_see_books == "y"
+    $rabbit_guides.each_index do |book_index|
+      $rabbit_guides[book_index].pretty_print
+    end
+  else
+    puts "Thank You for Publishing with Rabbit Guides!"
+  end
+  request_add_sale()
+end
 
 def add_book()
     puts "What place have you written about?"
     input_place = gets.chomp
-    puts "What is the publishing date?"
+    puts "What is the publishing year?"
     input_publishing_date = gets.chomp
-    puts "What is your books ISBN number?"
+    puts "What is the ISBN number?"
     input_isbn = gets.chomp
     puts "How much did each unit of your book cost to print (in CZK)"
     input_printing_cost = gets.chomp.to_i
     $rabbit_guides << RabbitGuide.new({place: input_place, publishing_date: input_publishing_date, isbn: input_isbn, printing_cost: input_printing_cost})
     request_add_book()
 end
-
-# rabbit_guides.each_index do |book_index|
-#   rabbit_guides[book_index].pretty_print
-# end
-
-
 
 def request_add_sale()
   puts "Would you like to add a sale? (y/n)"
@@ -175,7 +196,7 @@ def which_book()
   book_doesnt_exist()
 end
 
-def add_sale(book)#pass book parameter here?
+def add_sale(book)
   puts "Name of customer sold book to:"
   input_customer = gets.chomp
   puts "How many books did they buy?"
@@ -191,19 +212,4 @@ def book_doesnt_exist()
   request_add_book
 end
 
-def see_books()
-  puts "Do you want to see the books you've added? (y/n)"
-  want_see_books = gets.chomp
-  if want_see_books == "y"
-    $rabbit_guides.each_index do |book_index|
-      $rabbit_guides[book_index].pretty_print
-    end
-  else
-    puts "Thank You for Publishing with Rabbit Guides!"
-  end
-  request_add_sale()
-end
-
 request_add_book()
-
-#create method to see how much money made puts "Would you like to see how much money you've made? (y/n)"

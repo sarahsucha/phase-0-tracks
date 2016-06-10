@@ -71,7 +71,7 @@ class RabbitGuide
   def pretty_sales_prints
     puts "-----------------------------"
     puts "For #{@title}"
-    "-----------------------------"
+    puts "-----------------------------"
     puts "Your Customers:"
     @customers.each {|customer| puts "      #{customer}"}
     puts "Your total profit = #{@total_profit_in_czk} CZK"
@@ -108,6 +108,8 @@ end
 
 #USER INTERFACE
 $rabbit_guides = []
+$rabbit_guides << RabbitGuide.new({place: "Venice", publishing_date: 2013, isbn: 12344566, printing_cost: 125})
+$rabbit_guides << RabbitGuide.new({place: "Prague", publishing_date: 2013, isbn: 12344566, printing_cost: 125})
 
 def request_add_book()
   puts "Would you like to add a new Rabbit Guides book? (y/n)"
@@ -119,22 +121,11 @@ def request_add_book()
   end
 end
 
-def see_books()
-  puts "Do you want to see the books you've added? (y/n)"
-  want_see_books = gets.chomp
-  if want_see_books == "y"
-    $rabbit_guides.each_index do |book_index|
-      $rabbit_guides[book_index].pretty_print
-    end
-  else
-    puts "Thank You for Publishing with Rabbit Guides!"
-  end
-end
+
 
 def add_book()
     puts "What place have you written about?"
     input_place = gets.chomp
-    # break if input_place == "done"
     puts "What is the publishing date?"
     input_publishing_date = gets.chomp
     puts "What is your books ISBN number?"
@@ -149,52 +140,70 @@ end
 #   rabbit_guides[book_index].pretty_print
 # end
 
-request_add_book()
+
 
 def request_add_sale()
   puts "Would you like to add a sale? (y/n)"
   input_if_add_sale = gets.chomp
   if input_if_add_sale == "y"
-    add_sale()
+    which_book()
   else
-    puts "Would you like to see information about your sales? (y/n)"
-    want_see_sales = gets.chomp
-    if want_see_sales == "y"
-      $rabbit_guides.each_index do |book_index|
-        $rabbit_guides[book_index].pretty_sales_prints
-      end
-    else
-    puts "Have a Nice Day!"
-    end #end IF statement for see sales
+    see_sales()
   end #end IF statement for add sale
 end #end request_add_sale method
 
-#TOFIX - not able to add sale - figure out how to compare if the input_place is equal to the @place of one of the class instances. Otherwise, it should inform the user that the book does not exist.
-# def add_sale()
-#   puts "Which book did you sell? A Rabbit's Guide to ____"
-#   input_place = gets.chomp
-#   i = 0
-#   if while i < $rabbit_guides.length
-#     $rabbit_guides[i].place == input_place
-#     # any of the rabbit_guides.place calls are equal to the user input
-#   # book_index = 0
-#   # if $rabbit_guides.each { |book_index| $rabbit_guides[book_index].place == input_place }
-#       puts "Name of customer sold book to:"
-#       input_customer = gets.chomp
-#       puts "How many books did they buy?"
-#       input_num_books_sold = gets.chomp.to_i
-#       puts "How much per book did they pay?"
-#       input_sale_price = gets.chomp.to_i
-#       $rabbit_guides[i].sell_book(input_customer, input_num_books_sold, input_sale_price)
-#       break
-#     end
-#   else
-#       puts "Oops! That book doesn't seem to exist yet!"
-#       request_add_book()
-#   #   end #end IF statement for book existing in array
-#   end
-#   request_add_sale()
-# end #end add_sale method
-#
-# request_add_sale()
+def see_sales()
+  puts "Would you like to see information about your sales? (y/n)"
+  want_see_sales = gets.chomp
+  if want_see_sales == "y"
+    $rabbit_guides.each_index do |book_index|
+      $rabbit_guides[book_index].pretty_sales_prints
+    end
+  else
+  puts "Have a Nice Day!"
+  end #end IF statement for see sales
+end
+
+def which_book()
+  puts "Which book did you sell? A Rabbit's Guide to ____"
+  input_place = gets.chomp
+  for i in 0..$rabbit_guides.length - 1
+    if $rabbit_guides[i].place == input_place
+      return add_sale($rabbit_guides[i])
+    end
+  end
+  book_doesnt_exist()
+end
+
+def add_sale(book)#pass book parameter here?
+  puts "Name of customer sold book to:"
+  input_customer = gets.chomp
+  puts "How many books did they buy?"
+  input_num_books_sold = gets.chomp.to_i
+  puts "How much per book did they pay?"
+  input_sale_price = gets.chomp.to_i
+  book.sell_book(input_customer, input_num_books_sold, input_sale_price)
+  request_add_sale()
+end #end add_sale method
+
+def book_doesnt_exist()
+  puts "Oops! That book doesn't seem to exist yet!"
+  request_add_book
+end
+
+def see_books()
+  puts "Do you want to see the books you've added? (y/n)"
+  want_see_books = gets.chomp
+  if want_see_books == "y"
+    $rabbit_guides.each_index do |book_index|
+      $rabbit_guides[book_index].pretty_print
+    end
+  else
+    puts "Thank You for Publishing with Rabbit Guides!"
+  end
+  request_add_sale()
+end
+
+request_add_book()
+
 #create method to see how much money made puts "Would you like to see how much money you've made? (y/n)"

@@ -1,3 +1,4 @@
+// RELEASE 0
 // PSEUDOCODE
 // Write a FUNCTION that takes in a set of phrases.
 //    Loop through each phrase in a set of phrases.
@@ -20,6 +21,7 @@ console.log(phrases)
 var newPhrases = longestPhrase(["JavaScript", "Ruby", "Node", "MySQL"]);
 console.log(newPhrases)
 
+// RELEASE 1
 // PSEUDOCODE
 // Write a FUNCTION that takes in two objects
 //    FOR each KEY , evaluate if both objects have the same KEY
@@ -45,3 +47,11 @@ var cities = sharesPairs({name: "Paris", country: "France"}, {city: "Vernon", re
 console.log(cities)
 var dogs = sharesPairs({name: "Surely", age: 7}, {age: 7, name: "Spot"});
 console.log(dogs)
+
+// RELEASE 2
+// PSEUDOCODE
+// Write a FUNCTION that takes in a number
+// 		For as many times as the number given:
+//    		Create a string of random length from 1 - 10
+//		Store the strings created into an ARRAY
+//				Pass the ARRAY in as an argument to the longestPhrase FUNCTION

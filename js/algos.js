@@ -14,6 +14,7 @@ function longestPhrase(phraseGroup) {
 	return longest;
 }
 
+// DRIVER CODE
 var phrases = longestPhrase(["long phrase","longest phrase","longer phrase"]);
 console.log(phrases)
 var newPhrases = longestPhrase(["JavaScript", "Ruby", "Node", "MySQL"]);
@@ -21,9 +22,9 @@ console.log(newPhrases)
 
 // PSEUDOCODE
 // Write a FUNCTION that takes in two objects
-// For each KEY and VALUE, evaluate if both objects have the same KEY and VALUE
-// IF the two objects have the same KEY and VALUE, is true
-// ELSE is false
+//    FOR each KEY , evaluate if both objects have the same KEY
+//      IF the two objects have the same KEY and VALUE, is true
+//      otherwise remains false
 
 function sharesPairs(object1, object2) {
 	var sharesKeys = false
@@ -35,9 +36,12 @@ function sharesPairs(object1, object2) {
 	return sharesKeys
 }
 
+// DRIVER CODE
 var people = sharesPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
 console.log(people);
 var places = sharesPairs({grass: "green", location: "other side"}, {city: "San Francisco", year: 2016});
 console.log(places)
 var cities = sharesPairs({name: "Paris", country: "France"}, {city: "Vernon", region: "France"});
 console.log(cities)
+var dogs = sharesPairs({name: "Surely", age: 7}, {age: 7, name: "Spot"});
+console.log(dogs)

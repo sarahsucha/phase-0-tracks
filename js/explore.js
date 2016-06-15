@@ -6,7 +6,7 @@
   // IF there is a space, keep the space
 // Print out the reversed string
 
-function reverseString(string) {
+function reverse(string) {
   reverse_string = "";
   for (var i = string.length -1; i >= 0; i-=1) {
     reverse_string += string[i];
@@ -14,7 +14,9 @@ function reverseString(string) {
   console.log(reverse_string);
 }
 
-var testString = "JavaScript";
-reverseString("JavaScript");
+reverse("JavaScript");
+reverse("hello");
 
-//console.log(testString.length)
+if (9 < 12) {
+  reverse("I'm true!");
+}

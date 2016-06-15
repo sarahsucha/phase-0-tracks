@@ -29,14 +29,14 @@ console.log(newPhrases)
 //      otherwise remains false
 
 function sharesPairs(object1, object2) {
-	var sharesKeys = false
+	var sharesKeys = false;
 	for (var k in object1) {
 		if (object1[k] == object2[k]) {
-			sharesKeys = true
-		}
-	}
-	return sharesKeys
-}
+			sharesKeys = true;
+		};
+	};
+	return sharesKeys;
+};
 
 // DRIVER CODE
 var people = sharesPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
@@ -51,7 +51,43 @@ console.log(dogs)
 // RELEASE 2
 // PSEUDOCODE
 // Write a FUNCTION that takes in a number
-// 		For as many times as the number given:
-//    		Create a string of random length from 1 - 10
+// 		For as many times as the number given, ask for a string.
 //		Store the strings created into an ARRAY
-//				Pass the ARRAY in as an argument to the longestPhrase FUNCTION
+//		Pass the ARRAY in as an argument to the longestPhrase FUNCTION
+// Write a FUNCTION that creates a word of a random length (from 1 - 10 characters long)
+// 		Define a random number for the length of the word
+// 		Define a empty word
+// 		Define the letters which may be used (the alphabet)
+// 		FOR as many times as the random number, select a letter
+//		Add that letter to the word string
+//		Return the word
+
+function makeArray(number) {
+	var wordArray = [];
+	for (var x = 0; x < number; x++) {
+		wordArray.push(makeWord());
+	};
+	return wordArray;
+};
+
+// 	I had to look up a way of selecting a random number / letter
+//  Math is a preexisting object which has some functions already written
+//  One of the preexisting functions is Math.random
+		// Math.random will return a random number, but that number is a random decimal from 0 to 1.
+		// In order to get a random whole number from 1 - 10 we need to use another MATH function
+		// It is possible to use the function Math.ceil or Math.floor to round numbers to the nearest whole number above or below a decimal
+		// We can use the functions Math.random and Math.floor together to return a random number between 0 and 10
+		// In order to get a number between 1 and 10, since we are rounding down with Math.floor, we must add 1.
+
+function makeWord() {
+	var randomNumber = Math.floor(Math.random() * 10) + 1;
+	word = "";
+	var characters = "abcdefghijklmnopqrstuvwxyz";
+	for (var y = 0; y < randomNumber; y++) {
+			word += characters.charAt(Math.floor(Math.random() * characters.length));
+	};
+	return word
+}
+
+console.log(makeArray(3));
+console.log(longestPhrase(makeArray(4)));

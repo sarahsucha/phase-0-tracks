@@ -40,7 +40,11 @@ var newCar = new Car("Nissan", "Altima", "Black", 2013);
 console.log(newCar);
 newCar.startEngine();
 
+// RELEASE 3
+
 // If we wanted to print out the property / value pairs for each car we could save the cars to an array and then loop through the array to print out each car.
 for (var p in oldCar) {
   console.log("The property is " + p + " and the value is " + oldCar[p]);
 }
+
+// It is advantageous to use constructor functions when you need multiple instances of the same type of object, otherwise it would just be more code to accomplish the same thing if you only need one of them.

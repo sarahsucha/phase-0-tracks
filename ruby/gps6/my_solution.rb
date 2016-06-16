@@ -32,17 +32,17 @@ class VirusPredictor
   def predicted_deaths
     # predicted deaths is solely based on population density
 
-    case @population_density
+    number_of_deaths = case @population_density
       when 200...
-        number_of_deaths = (@population * 0.4).floor
+        (@population * 0.4).floor
       when 150...200
-        number_of_deaths = (@population * 0.3).floor
+        (@population * 0.3).floor
       when 100...150
-        number_of_deaths = (@population * 0.2).floor
+        (@population * 0.2).floor
       when 50...100
-        number_of_deaths = (@population * 0.1).floor
+        (@population * 0.1).floor
       else
-        number_of_deaths = (@population * 0.05).floor
+        (@population * 0.05).floor
     end
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
@@ -50,26 +50,19 @@ class VirusPredictor
   end
 
 # Method which predicts infection rates depending on how dense the population is and prints out a statement.
-  def speed_of_spread #in months
-    # We are still perfecting our formula here. The speed is also affected
-    # by additional factors we haven't added into this functionality.
-    speed = 0.0
-
-    case @population_density
-      when 200...
-        speed += 0.5
-      when 150...200
-        speed += 1
-      when 100...150
-        speed += 1.5
-      when 50...100
-        speed += 2
-      else
-        speed += 2.5
+  def speed_of_spread
+    speed = if @population_density >= 200
+      0.5
+    elsif @population_density >= 150
+      1
+    elsif @population_density >= 100
+      1.5
+    elsif @population_density >= 50
+      2
+    else
+      2.5
     end
-
     puts " and will spread across the state in #{speed} months.\n\n"
-
   end
 
 end
@@ -119,4 +112,4 @@ STATE_DATA.each do |state_name, state_info|
 #     Since the class already had the information needed for the methods called stored as attributes of the class, it was not necessary to push them to the methods again. Attributes are available to all methods within the class.
 
 # What concept did you most solidify in this challenge?
-#     We had a hard time with accessing data in the sub hash. Although we had talked about how to access that data in the sub hash, since we were passing the sub hash as one variable it took us a while to click. 
+#     We had a hard time with accessing data in the sub hash. Although we had talked about how to access that data in the sub hash, since we were passing the sub hash as one variable it took us a while to click.

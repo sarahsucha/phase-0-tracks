@@ -15,8 +15,8 @@ def find_alias_letter(letter)
 	cipher = {'a' => 'e',  'e' => 'i', 'i' => 'o', 'o' => 'u', 'u' => 'a', 'z' => 'b'}
 	if cipher.has_key?(letter)
       	letter = cipher[letter]
-    elsif letter == 'd' || letter == 'h' || letter == 'n' || letter == 't'
-		letter = letter.next.next
+    elsif cipher.has_key?(letter.next)
+				letter = letter.next.next
     else
     	letter = letter.next
     end

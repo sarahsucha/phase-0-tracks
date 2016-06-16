@@ -1,6 +1,10 @@
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census
 
+# We've got a hash inside of a hash.
+# The hash which is a variable to the state key contains inportant information about the population.
+# The outer hash creates the container that holds all information
+# While the inner hash contains relevant population information.
 
 STATE_DATA = {
   "Alabama" => {population_density: 94.65, population: 4822023},
@@ -55,3 +59,5 @@ STATE_DATA = {
   "Wisconsin" => {population_density: 105.2, population: 5726398},
   "Wyoming" => {population_density: 5.851, population: 576412}
 }
+
+# STATE_DATA[Washington][population_density]

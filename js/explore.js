@@ -7,16 +7,16 @@
 // Print out the reversed string
 
 function reverse(string) {
-  reverse_string = "";
-  for (var i = string.length -1; i >= 0; i-=1) {
+  var reverse_string = "";
+  for (var i = string.length -1; i >= 0; i--) {
     reverse_string += string[i];
   };
-  console.log(reverse_string);
+  return (reverse_string);
 }
 
-reverse("JavaScript");
-reverse("hello");
+console.log(reverse("JavaScript"));
+console.log(reverse("hello"));
 
 if (9 < 12) {
-  reverse("I'm true!");
+  console.log(reverse("I'm true!"));
 }

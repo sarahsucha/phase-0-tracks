@@ -1,0 +1,25 @@
+sqlite> SELECT * FROM orders;
+1|2|680|1|April Doherty
+2|1|340|2|Sandy Samaan
+3|3|1020|2|Jessica Gilpin
+
+sqlite> UPDATE orders SET customer_name="Jessica Watson" WHERE customer_name="Jessica Gilpin";
+sqlite> Select * FROM orders;
+1|2|680|1|April Doherty
+2|1|340|2|Sandy Samaan
+3|3|1020|2|Jessica Watson
+
+sqlite> SELECT * FROM orders, books WHERE book_id = books.id;
+1|2|680|1|April Doherty|1|A Rabbit's Guide to Venice|2013|340
+2|1|340|2|Sandy Samaan|2|A Rabbit's Guide to Prague|2015|340
+3|3|1020|2|Jessica Gilpin|2|A Rabbit's Guide to Prague|2015|340
+
+sqlite> SELECT orders.id, orders.num_sold, orders.total_paid, orders.customer_name, books.name FROM orders JOIN books ON orders.book_id = books.id;
+1|2|680|April Doherty|A Rabbit's Guide to Venice
+2|1|340|Sandy Samaan|A Rabbit's Guide to Prague
+3|3|1020|Jessica Gilpin|A Rabbit's Guide to Prague
+
+sqlite> DELETE FROM orders WHERE id=2;
+sqlite> SELECT * FROM orders;
+1|2|680|1|April Doherty
+3|3|1020|2|Jessica Watson

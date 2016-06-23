@@ -23,3 +23,28 @@ sqlite> DELETE FROM orders WHERE id=2;
 sqlite> SELECT * FROM orders;
 1|2|680|1|April Doherty
 3|3|1020|2|Jessica Watson
+
+——— JOIN COMMANDS —————————————————
+CROSS JOIN seems to take each entry of on table and join it with each entry on the other table.
+This information, in this case, would not be accurate for mapping customer purchases with which item they bought.
+sqlite> SELECT * FROM orders CROSS JOIN books;
+1|2|680|1|April Doherty|1|A Rabbit's Guide to Venice|2013|340
+1|2|680|1|April Doherty|2|A Rabbit's Guide to Prague|2015|340
+3|3|1020|2|Jessica Watson|1|A Rabbit's Guide to Venice|2013|340
+3|3|1020|2|Jessica Watson|2|A Rabbit's Guide to Prague|2015|340
+4|2|680|2|Sandy Samaan|1|A Rabbit's Guide to Venice|2013|340
+4|2|680|2|Sandy Samaan|2|A Rabbit's Guide to Prague|2015|340
+
+sqlite> SELECT orders.id, customer_name, books.name  FROM orders LEFT JOIN books ON orders.book_id = books.id;
+1|April Doherty|A Rabbit's Guide to Venice
+3|Jessica Watson|A Rabbit's Guide to Prague
+4|Sandy Samaan|A Rabbit's Guide to Prague
+
+NATURAL INNER JOIN will condense all matching column names for the join. When I rand this, not sure why I only got back first order entry:
+sqlite> SELECT orders.id, customer_name, books.name FROM orders NATURAL JOIN books;
+1|April Doherty|A Rabbit's Guide to Venice
+
+I am wondering if the joins would be more successful if the table books primary key wasn’t just labeled as ‘id’ but rather ‘book_id’
+
+RIGHT JOINs and FULL OUTER JOINs are not supported. 
+

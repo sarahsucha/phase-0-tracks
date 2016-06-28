@@ -1,0 +1,18 @@
+#hamburgerIcon{
+ width:100px;
+}
+
+ul{
+  list-style-type: none;
+  font-size: 30px;
+  line-height: 50px;
+  font-family: sans-serif;
+}
+
+.menuOn {
+  display: block;
+}
+
+.menuOff {
+  display: none;
+}

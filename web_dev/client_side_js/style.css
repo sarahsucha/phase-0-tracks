@@ -8,3 +8,11 @@ ul{
   line-height: 50px;
   font-family: sans-serif;
 }
+
+.menuOn {
+  display: block;
+}
+
+.menuOff {
+  display: none;
+}

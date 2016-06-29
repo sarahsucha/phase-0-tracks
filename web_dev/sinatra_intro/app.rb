@@ -49,3 +49,31 @@ end
 get '/contact/' do
   "My address is:<br>#{params[:number]} #{params[:name]} St.<br>#{params[:city]}, #{params[:state]}  #{params[:zip]}"
 end
+# http://localhost:9393/contact/?number=1307&name=Hayes&city=San%20Francisco&state=CA&zip=94117
+# space in HTTP request is %20
+
+# write a GET route
+  # IF a person's name is provided, tell that person 'great job'
+  # ELSE a name is not provided, just say 'great job'
+
+get '/great_job/' do
+  person = params[:name]
+  if person
+    "Great Job, #{person}!"
+  else
+    "Great Job!"
+  end
+end
+# http://localhost:9393/great_job/?person=Sarah
+# http://localhost:9393/great_job
+
+# write a GET route that adds two integers
+  # provide two integers in HTTP request
+  # convert integers provided in HTTP as string to integers and add
+  # return response with string representing addition problem.
+get '/:number1/plus/:number2' do
+  number1 = params[:number1]
+  number2 = params[:number2]
+  sum = number1.to_i + number2.to_i
+  "#{number1} + #{number2} = #{sum}"
+end

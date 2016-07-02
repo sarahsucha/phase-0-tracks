@@ -33,4 +33,7 @@ Apparently these 9 major tenets come from the book *Linux and the Unix Philosoph
 * [Linux Kernal Map](http://www.makelinux.net/kernel_map/LKM3_2048.png)
 
 ### In your own words, what is a VPS (virtual private server)? What, according to your research, are the advantages of using a VPS?
-A VPS is a type of website hosting service. It is a contained environment on a server, so it provides almost all of the same possibilities of dedicated hosting at a more affordable price. It is more secure and scaleable than shared hosting allows the user to install any software compatible with the OS it is running. 
+A VPS is a type of website hosting service. It is a contained environment on a server, so it provides almost all of the same possibilities of dedicated hosting at a more affordable price. It is more secure and scaleable than shared hosting allows the user to install any software compatible with the OS it is running.
+
+### Why is it considered a bad idea to run programs as the root user on a Linux system?
+It sounds like the main reason to not use root on a Linux machine is for security reasons. I am thinking of it in a way like a branch on a code repository - you can manipulate the same code, but the original stays clean. 

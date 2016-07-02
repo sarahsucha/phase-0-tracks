@@ -24,3 +24,4 @@ resource:
 [http://www.diffen.com/difference/GET-vs-POST-HTTP-Requests](http://www.diffen.com/difference/GET-vs-POST-HTTP-Requests)
 
 ### What is a cookie? How does it relate to HTTP requests?
+Cookies are bits of text stored on your PC by your web browser. It may contain information about your user preferences, session token or other information the web site needs to track the user from one HTTP request to the next 
